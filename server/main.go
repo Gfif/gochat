@@ -11,7 +11,10 @@ import (
 	"syscall"
 )
 
-const BUF_SIZE = 100
+const (
+	BUF_SIZE     = 100
+	FAKE_NEWLINE = "\\\\"
+)
 
 var (
 	listen = flag.String("l", ":1991", "listen")
@@ -27,9 +30,9 @@ func prepareUsersList() string {
 	res := ""
 	for user := range users.Iter() {
 		str, _ := user.(string)
-		res += str + "\n"
+		res += str + FAKE_NEWLINE
 	}
-	return res
+	return res + "\n"
 }
 
 func isUserExists(user string) bool {

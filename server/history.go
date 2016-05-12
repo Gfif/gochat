@@ -28,8 +28,8 @@ func (h *History) Add(msg string) {
 func (h *History) Get() string {
 	res := ""
 	for el := h.queue.Front(); el != nil; el = h.queue.Next(el) {
-		res += fmt.Sprint(el.Value) + "\n"
+		res += fmt.Sprint(el.Value) + FAKE_NEWLINE
 	}
 
-	return res
+	return res + "\n"
 }
