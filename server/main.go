@@ -17,7 +17,7 @@ const (
 )
 
 var (
-	listen = flag.String("l", ":1991", "listen")
+	listen = flag.String("b", ":1991", "bind")
 )
 
 var (
