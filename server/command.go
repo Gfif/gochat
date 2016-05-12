@@ -21,9 +21,9 @@ type Command struct {
 
 func ParseCommand(cmd string) (*Command, error) {
 	parts := strings.Split(cmd, "=")
-	if len(parts) != 2 {
+	if len(parts) < 2 {
 		return nil, ERROR_WRONG_COMMAND
 	}
 	// TODO: validate commandType
-	return &Command{parts[0], strings.Replace(parts[1], "\n", "", -1)}, nil
+	return &Command{parts[0], strings.Replace(strings.Join(parts[1:], "="), "\n", "", -1)}, nil
 }
