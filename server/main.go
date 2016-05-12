@@ -99,6 +99,8 @@ func main() {
 			hist.Add(msg)
 			for c := range chans.Iter() {
 				ch, _ := c.(chan string)
+				// clear line first
+				msg = "\x1b[2K" + msg
 				ch <- msg
 			}
 		case <-quit:
