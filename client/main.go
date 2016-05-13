@@ -14,7 +14,7 @@ import (
 
 var (
 	user = flag.String("u", "", "user name")
-	s    = flag.String("s", "localhost:1991", "server address")
+	serv = flag.String("s", "localhost:1991", "server address")
 )
 
 const (
@@ -99,7 +99,7 @@ func (c *Client) WriteMsg(msg string) {
 func main() {
 	flag.Parse()
 
-	c := NewClient("localhost:1991")
+	c := NewClient(*serv)
 	defer c.Close()
 
 	c.Register()
