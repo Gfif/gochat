@@ -27,7 +27,7 @@ cd client; go build; cd -
 ###Running client###
 
 ``` sh
-./client/client -b :1991
+./client/client -s localhost:1991 -u mynick
 ```
 
 
